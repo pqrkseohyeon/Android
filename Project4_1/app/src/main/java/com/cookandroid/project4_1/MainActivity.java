@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,13 +16,15 @@ public class MainActivity extends AppCompatActivity {
     Button btnAdd, btnSub, btnMul, btnDiv, btnMod;
     TextView textResult;
     String num1, num2;
-    Integer result;
+    Double result;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // 1.바인딩(View)
-        setTitle("초간단 계산기");
+        setTitle("초간단 계산기(수정)");
 
         edit1 = (EditText) findViewById(R.id.Edit1);
         edit2 = (EditText) findViewById(R.id.Edit2);
@@ -35,55 +38,106 @@ public class MainActivity extends AppCompatActivity {
         textResult = (TextView) findViewById(R.id.TextResult); //2.바인딩(위젯)
 
         //이벤트 처리
-        btnAdd.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
                 num1 = edit1.getText().toString();
                 num2 = edit2.getText().toString();
-                result = Integer.parseInt(num1) + Integer.parseInt(num2);
-                textResult.setText("계산 결과 : " + result.toString());
-                return false;
+                // num1이나 num2가 둘 중에 하나라도 공백이면, 에러표시
+                if (num1.trim().equals("") || num2.trim().equals("")) {
+                    Toast.makeText(getApplicationContext(), "입력 값이 비었습니다", Toast.LENGTH_SHORT)
+                            .show();
+                } else {
+                    result = Double.parseDouble(num1)
+                            + Double.parseDouble(num2);
+                    textResult.setText("계산 결과 : " + result.toString());
+                }
             }
         });
 
-        btnSub.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
                 num1 = edit1.getText().toString();
                 num2 = edit2.getText().toString();
-                result = Integer.parseInt(num1) - Integer.parseInt(num2);
-                textResult.setText("계산 결과 : " + result.toString());
-                return false;
+
+                // num1이나 num2가 둘 중에 하나라도 공백이면, 에러표시
+                if (num1.trim().equals("") || num2.trim().equals("")) {
+                    Toast.makeText(getApplicationContext(), "입력 값이 비었습니다", Toast.LENGTH_SHORT)
+                            .show();
+                } else {
+                    result = Double.parseDouble(num1)
+                            - Double.parseDouble(num2);
+                    textResult.setText("계산 결과 : " + result.toString());
+                }
+
             }
         });
 
-        btnMul.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+        btnMul.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
                 num1 = edit1.getText().toString();
                 num2 = edit2.getText().toString();
-                result = Integer.parseInt(num1) * Integer.parseInt(num2);
-                textResult.setText("계산 결과 : " + result.toString());
-                return false;
+                // num1이나 num2가 둘 중에 하나라도 공백이면, 에러표시
+                if (num1.trim().equals("") || num2.trim().equals("")) {
+                    Toast.makeText(getApplicationContext(), "입력 값이 비었습니다", 1000)
+                            .show();
+                } else {
+                    result = Double.parseDouble(num1)
+                            * Double.parseDouble(num2);
+                    textResult.setText("계산 결과 : " + result.toString());
+                }
+
             }
         });
 
-        btnDiv.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
                 num1 = edit1.getText().toString();
                 num2 = edit2.getText().toString();
-                result = Integer.parseInt(num1) / Integer.parseInt(num2);
-                textResult.setText("계산 결과 : " + result.toString());
-                return false;
+                // num1이나 num2가 둘 중에 하나라도 공백이면, 에러표시
+                if (num1.trim().equals("") || num2.trim().equals("")) {
+                    Toast.makeText(getApplicationContext(), "입력 값이 비었습니다", Toast.LENGTH_SHORT)
+                            .show();
+                } else {
+                    // num2가 0이면 나누지 않는다.
+                    if (num2.trim().equals("0")) {
+                        Toast.makeText(getApplicationContext(),
+                                "0으로 나눌 수 없습니다!", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        result = Double.parseDouble(num1)
+                                / Double.parseDouble(num2);
+                        result = (int) (result * 100) / 100.0; // 소수점 아래 2자리까지만 출력
+                        textResult.setText("계산 결과 : " + result.toString(result));
+                    }
+                }
+
             }
         });
 
-        btnMod.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+
+        btnMod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 num1 = edit1.getText().toString();
                 num2 = edit2.getText().toString();
-                result = Integer.parseInt(num1) % Integer.parseInt(num2);
-                textResult.setText("계산 결과 : " + result.toString());
-                return false;
+                // num1이나 num2가 둘 중에 하나라도 공백이면, 에러표시
+                if (num1.trim().equals("") || num2.trim().equals("")) {
+                    Toast.makeText(getApplicationContext(), "입력 값이 비었습니다", 1000)
+                            .show();
+                } else {
+                    result = Double.parseDouble(num1)
+                            % Double.parseDouble(num2);
+                    textResult.setText("계산 결과 : " + result.toString());
+                }
+
             }
+
         });
+
+
+
+
 
 
     }
