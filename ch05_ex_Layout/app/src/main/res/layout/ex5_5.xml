@@ -6,37 +6,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-    <Button
-        android:id="@+id/baseBtn1"
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="기준1"/>
+        android:text="전화번호"
+        android:textSize="23sp"/>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/textView1"
+        android:hint="000-0000-0000"/>
 
     <Button
-        android:id="@+id/baseBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnC"
+        android:layout_toLeftOf="@+id/btnC"
+        android:layout_margin="5dp"
+        android:text="입력"/>
+
+    <Button
+        android:id="@+id/btnC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:text="기준2"/>
+        android:layout_below="@id/textView1"
+        android:layout_margin="5dp"
+        android:text="취소"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/baseBtn2"
-        android:layout_toRightOf="@+id/baseBtn1"
-        android:text="1번"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/baseBtn1"
-        android:text="2번"/>
 
 
 
