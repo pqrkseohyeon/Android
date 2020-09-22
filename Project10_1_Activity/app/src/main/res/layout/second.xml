@@ -9,15 +9,10 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn2"
+        android:id="@+id/btnReturn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="버튼222"/>
+        android:text="돌아가기"/>
 
-    <EditText
-        android:id="@+id/edt2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="여기에..."/>
 
 </LinearLayout>

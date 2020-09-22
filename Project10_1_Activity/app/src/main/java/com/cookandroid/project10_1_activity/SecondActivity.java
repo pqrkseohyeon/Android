@@ -15,16 +15,8 @@ public class SecondActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second);
 
-        Button btn2 = (Button) findViewById(R.id.btn2);
-        EditText edt2 = (EditText) findViewById(R.id.edt2);
-
-        Intent in2 = getIntent();
-
-        int n =0;
-        n = in2.getIntExtra("Data1",0);
-        edt2.setText(""+n);
-
-        btn2.setOnClickListener(new View.OnClickListener() {
+        Button btnReturn = (Button) findViewById(R.id.btnReturn);
+        btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
