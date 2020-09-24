@@ -7,9 +7,11 @@
     android:layout_height="match_parent"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
-    android:paddingTop="16dp">
+    android:paddingTop="16dp"
+    >
 
     <TableLayout
+        android:id="@+id/tLay1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -33,7 +35,8 @@
                 android:id="@+id/edt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_span="3" />
+                android:layout_span="3"
+                android:maxLength="6" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -56,7 +59,8 @@
                 android:id="@+id/edt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_span="3" />
+                android:layout_span="3"
+                android:maxLength="6" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -66,8 +70,8 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="183dp"
-            android:layout_height="20dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView5"
@@ -84,34 +88,107 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/rd1"
-                    android:layout_width="q"
+                    android:id="@+id/rb1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="여자" />
 
                 <RadioButton
-                    android:id="@+id/rd2"
-                    android:layout_width="90dp"
+                    android:id="@+id/rb2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="남자" />
 
             </RadioGroup>
 
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/testView7"
+                android:layout_span="2"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:text="혈액형:" />
+
+            <Spinner
+                android:id="@+id/spin1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="3"/>
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="습    관"/>
+
+            <CheckBox
+                android:id="@+id/chk1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="음주"/>
+
+            <CheckBox
+                android:id="@+id/chk2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="흡연"/>
+
+            <CheckBox
+                android:id="@+id/chk3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="운동"
+                android:layout_span="2"/>
+        </TableRow>
     </TableLayout>
 
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tLay1"
+        android:text="몸 상태 측정" />
 
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn1"
+        android:text="1. ?형 ??입니다." />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv1"
+        android:text="2. 신체 질량 지수는 ???입니다." />
+
+    <Gallery
+        android:id="@+id/gal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv2"/>
 </RelativeLayout>
