@@ -1,11 +1,11 @@
 package com.cookandroid.project_mid_a_2;
 
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,26 +19,25 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-    String gender ="여자";
+    String gender = "여자";
     String blood = "A";
-
+    double bmi = 0;
     double height = 0;
     double weight = 0;
-    double bmi = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("BMI");
 
         final EditText edt1 = (EditText) findViewById(R.id.edt1);
         final EditText edt2 = (EditText) findViewById(R.id.edt2);
 
-        final RadioButton rb1 = (RadioButton) findViewById(R.id.rb1);
-        final RadioButton rb2 = (RadioButton) findViewById(R.id.rb2);
+        final RadioButton rb1 =(RadioButton) findViewById(R.id.rb1);
+        final RadioButton rb2 =(RadioButton) findViewById(R.id.rb2);
 
         Spinner spinner = (Spinner) findViewById(R.id.spin1);
-
         final CheckBox chk1 = (CheckBox) findViewById(R.id.chk1);
         final CheckBox chk2 = (CheckBox) findViewById(R.id.chk2);
         final CheckBox chk3 = (CheckBox) findViewById(R.id.chk3);
@@ -46,16 +45,16 @@ public class MainActivity extends AppCompatActivity {
         final TextView tv1 = (TextView) findViewById(R.id.tv1);
         final TextView tv2 = (TextView) findViewById(R.id.tv2);
 
-        Button btn1 = (Button) findViewById(R.id.btn1);
+        Button btn1 =(Button) findViewById(R.id.btn1);
 
         rb1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RadioButton rb = (RadioButton) v;
                 gender = rb.getText().toString();
+
             }
         });
-
         rb2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.blood_array,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.blood_array,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
@@ -76,69 +75,52 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
-
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                ArrayList<Integer> mThumbles = new ArrayList<Integer>();
 
-                ((InputMethodManager)getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(v.getWindowToken(),0);
-                ArrayList<Integer> mThumblds = new ArrayList<Integer>();
-
-                if (edt1.getText().toString().equals("")||edt2.getText().toString().equals("")){
-                    tv2.setText("2.신체질량지수는 ???입니다!");
+                if(edt1.getText().toString().equals("")||edt2.getText().toString().equals("")){
+                    tv2.setText("2.신체질량지수는 ??입니다.");
 
                     new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("키와 체중")
-                            .setView(getLayoutInflater().inflate(R.layout.custom_dialog, null)).show();
+                            .setTitle("키와체중")
+                            .setView(getLayoutInflater().inflate(R.layout.custom_dialog,null))
+                            .show();
+                }else{
+                    String str1=edt1.getText().toString();
+                    String str2=edt2.getText().toString();
+                    height =Double.parseDouble(str1);
+                    weight =Double.parseDouble(str2);
+                    bmi = weight/((height/100)*(height/100));
+                    tv2.setText("2.신체질량지수는 "+Math.round(bmi*10)/10F+"입니다");
                 }
-                else
-                {
-                    String str1 = edt1.getText().toString();
-                    String str2 = edt1.getText().toString();
-
-                     height = Double.parseDouble(str1);
-                     weight = Double.parseDouble(str2);
-
-                     bmi = weight/((height/100)*(height/100));
-
-                    tv2.setText("2. 신체질량지수는 " +Math.round(bmi*10)/10F+" 입니다.");
-
-                }
-
-                if (blood.equals("")||gender.equals("")){
-                    tv1.setText("1.?형 ??입니다!");
+                if(blood.equals("")||gender.equals("")){
+                    tv1.setText("1.?형 ??입니다.");
                     return;
+                }else{
+                    tv1.setText(("1. "+blood+"형 "+gender+"입니다"));
                 }
-                else{
-                    tv1.setText("1. "+blood+"형 " + gender + "입니다!");
-                }
+
                 if(chk1.isChecked()){
-                    mThumblds.add(R.drawable.drinking);
+                    mThumbles.add(R.drawable.drinking);
                 }
-
                 if(chk2.isChecked()){
-                    mThumblds.add(R.drawable.ciga);
+                    mThumbles.add(R.drawable.ciga);
                 }
-
                 if(!chk3.isChecked()){
-                    mThumblds.add(R.drawable.running);
+                    mThumbles.add(R.drawable.running);
                 }
-
                 Gallery gal = (Gallery) findViewById(R.id.gal);
-
-                if (chk1.isChecked() || chk2.isChecked() || !chk3.isChecked())
-                {
-                    gal.setAdapter(new ImageAdapter(MainActivity.this, mThumblds));
-                }
-                else
-                {
+                if(chk1.isChecked()||chk2.isChecked()||chk3.isChecked()){
+                    gal.setAdapter(new ImageAdapter(MainActivity.this, mThumbles));
+                }else{
                     gal.removeAllViewsInLayout();
                 }
             }
         });
-
     }
 }
+

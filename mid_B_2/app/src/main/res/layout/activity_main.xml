@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TableLayout
+        android:id="@+id/tabMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="수면"/>
+
+            <EditText
+                android:id="@+id/edit1"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:maxLength="2"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시간"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <CheckBox
+                android:id="@+id/ch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="코딩"
+                android:layout_gravity="right"/>
+
+            <EditText
+                android:id="@+id/edit2"
+                android:layout_width="wrap_content"
+                android:maxLength="2"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시간"/>
+
+            <CheckBox
+                android:text="독서"
+                android:id="@+id/ch2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/edit3"
+                android:layout_width="50dp"
+                android:maxLength="2"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시간"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <CheckBox
+                android:text="영어"
+                android:id="@+id/ch3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edit4"
+                android:maxLength="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시간"/>
+
+            <CheckBox
+                android:text="운동"
+                android:id="@+id/ch4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/edit5"
+                android:maxLength="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시간"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="201dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이상형" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_span="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tabMode"
+        android:text="처리결과"/>
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_below="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test1"/>
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_below="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test1"/>
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_below="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test1"/>
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv3"
+        android:id="@+id/gridView"
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="10dp"
+        android:columnWidth="90dp"
+        />
+</RelativeLayout>
