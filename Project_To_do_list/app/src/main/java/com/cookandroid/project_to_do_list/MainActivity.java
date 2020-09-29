@@ -4,15 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+    Button btn;
+    String fileName;
+    TextView todoTv;
 
     Button insertButton;
     EditText todoEdit;
@@ -23,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        todoTv = (TextView) findViewById(R.id.textview_todo_item);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler1);
 
@@ -37,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         insertButton = (Button) findViewById(R.id.button_insert_main);
         todoEdit = (EditText) findViewById(R.id.edit_todo_main);
 
+
         insertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,5 +61,33 @@ public class MainActivity extends AppCompatActivity {
                 todoEdit.setText(null);
             }
         });
+
+
+
+
     }
+    public void InternalStorageSave(View view){
+        internalStorageSavefile();
+    }
+
+    public void internalStorageSavefile(){
+        String filename = "first";
+        String string = todoEdit.getText().toString();
+        FileOutputStream outputStream;
+
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write((string.getBytes()));
+            outputStream.close();
+
+            Toast.makeText(this, "파일 저장 성공!", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            Toast.makeText(this, "파일 저장 실패!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+
 }

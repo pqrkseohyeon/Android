@@ -29,11 +29,19 @@
         android:layout_gravity="center_vertical"/>
 
     <ImageButton
-        android:id="@+id/button_todo_item"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/update"
+        android:layout_width="31dp"
+        android:layout_height="26dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="10dp"
+
+        android:scaleType="center"
+        android:src="@drawable/up" />
+
+    <ImageButton
+        android:id="@+id/button_todo_item"
+        android:layout_width="35dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
         android:scaleType="centerInside"
         android:src="@drawable/ic_delete_black" />
 
