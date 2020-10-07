@@ -62,7 +62,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                try {
+//                    String filename = "first";
+//                    FileOutputStream outFs = openFileOutput(fileName,
+//                            Context.MODE_PRIVATE);
+//                    String str = todoEdit.getText().toString();
+//                    outFs.write(str.getBytes());
+//                    outFs.close();
+//                    Toast.makeText(getApplicationContext(),
+//                            fileName + " 이 저장됨", Toast.LENGTH_LONG).show();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//
+//                }
+//
+//            }
+//        });
 
 
     }
