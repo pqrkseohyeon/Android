@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,33 +10,27 @@
         android:layout_height="wrap_content"
         android:text="새로고침"
         android:id="@+id/btnRefresh"/>
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="추가"
         android:id="@+id/btn_add"/>
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp">
-
+        android:orientation="horizontal">
         <EditText
             android:id="@+id/edtSearch"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content" />
-
-
-        <Button
-            android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/edtSearch"
-            android:text="검색" />
+            android:layout_weight="1"
+            android:hint="id를 입력하세요"/>
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색"/>
     </LinearLayout>
-
 
     <ListView
         android:layout_width="match_parent"
