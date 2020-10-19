@@ -22,6 +22,7 @@ public class NetworkGet extends AsyncTask<String,Void,String> {
 
     private URL Url;
     private String URL_Adress = "http://10.100.206.18:8888/testDB/testDB.jsp";
+
     private Custom_Adapter adapter;
 
     public NetworkGet(Custom_Adapter adapter){

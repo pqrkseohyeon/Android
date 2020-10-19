@@ -21,6 +21,7 @@ public class NetworkInsert extends AsyncTask<String,Void,String> {
 
     private URL Url;
     private String URL_Adress = "http://10.100.206.18:8888/testDB/testDB3_insert.jsp";
+
     private Custom_Adapter adapter;
 
     public NetworkInsert(Custom_Adapter adapter){
